@@ -1,0 +1,2601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* navbar  */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #f7f7f7;
+      }
+
+      .header {
+        width: 1248px;
+        margin: 0 auto;
+      }
+
+      /* Navbar */
+      .navbar {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: rgb(243, 234, 234);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        position: relative;
+        z-index: 100;
+      }
+
+      /* Logo */
+      .logo img {
+        height: 35px;
+      }
+
+      /* Center Menu */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: #ff385c;
+      }
+
+      .nav-links li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav-links li img {
+        width: 60px;
+        transition: transform 0.2s ease;
+      }
+
+      .nav-links li:hover img {
+        transform: scale(1.08);
+      }
+
+      .nav-icon {
+        transition: transform 0.2s ease;
+        cursor: pointer;
+      }
+
+      .nav-icon:hover {
+        transform: scale(1.08);
+      }
+
+      /* Right Section */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .host-text {
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .profile {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .profile img {
+        width: 32px;
+        border-radius: 50%;
+      }
+
+      /* Navbar Dropdown */
+      .profile .dropdown {
+        position: absolute;
+        right: 0;
+        top: 45px;
+        background: white;
+        width: 260px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        display: none;
+        z-index: 200;
+      }
+
+      .dropdown ul {
+        list-style: none;
+        padding: 10px;
+      }
+
+      .dropdown li {
+        padding: 8px 10px;
+      }
+
+      .dropdown button {
+        width: 100%;
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .dropdown button:hover {
+        background: #f2f2f2;
+        border-radius: 6px;
+      }
+
+      .host-box p {
+        font-size: 12px;
+        color: gray;
+      }
+
+      .login-btn button {
+        font-weight: bold;
+      }
+
+      .nav-right img {
+        width: 32px;
+      }
+
+      /* search bar */
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 400px;
+        padding: 0px;
+        width: 790px;
+        height: 55px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        margin: 80px auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .search-item {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        border-radius: 400px;
+        margin-bottom: -7px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .search-item:hover {
+        background-color: #f2f2f2;
+      }
+
+      .extraCSS {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: 31px;
+      }
+
+      .search-item label {
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .search-item input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 14px;
+        color: #555;
+        background: transparent;
+      }
+
+      .divider {
+        width: 1px;
+        height: 40px;
+        background-color: #ddd;
+      }
+
+      .search-btn {
+        background-color: #ff385c;
+        border: none;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 30px;
+        margin-right: -10px;
+        margin-bottom: 6px;
+      }
+
+      .search-btn:hover {
+        background-color: #e11d48;
+      }
+
+      /* Search Dropdown */
+      .search-item .dropdown {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 250px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 10px;
+        display: none;
+        z-index: 150;
+      }
+
+      .search-item .dropdown p {
+        padding: 10px;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .search-item .dropdown p:hover {
+        background: #f5f5f5;
+        border-radius: 8px;
+      }
+
+      /* ===== OVERLAY ===== */
+      .overlay {
+        /* position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 80px;
+        z-index: 2000;*/
+        animation: slideDown 0.3s ease; 
+         position: fixed;
+        inset: 0;                     /* same as top:0 left:0 right:0 bottom:0 */
+        background: rgba(0,0,0,0.4);
+        display: none;
+
+        justify-content: center;
+        align-items: flex-start;
+
+        padding-top: 80px;
+        z-index: 2000;
+      }
+
+      /* ===== FORM BOX ===== */
+      .form-box {
+        background: white;
+        width: min(720px, 90vw);   /* responsive */
+        max-height: 85vh;
+
+        border-radius: 12px;
+        overflow: hidden;
+
+        box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      }
+
+     @keyframes slideDown {
+        from {
+            transform: translateY(240px); /* start below */
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0); /* final position */
+            opacity: 1;
+        }
+    }
+
+      .form-box h2 {
+        margin-bottom: 15px;
+      }
+
+      .form-box input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+
+      .close-btn {
+        float: right;
+        cursor: pointer;
+        font-size: 18px;
+        border: none;
+        background: none;
+        margin-left: 15px;
+        margin-bottom: 22px;
+      }
+
+      .close-btn-lang {
+        display: flex;
+        flex-direction: column;
+        padding: 4px;
+        align-items: left;
+      }
+
+      /* overlay container */
+      .overlay-form {
+        position: relative;   /* or remove position completely */
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        padding: 16px;
+      }
+      .close-btn{
+        display: flex;
+        align-items: left;
+      }
+
+      /* tabs */
+      .tabs {
+        display: flex;
+        border-bottom: 1px solid #eee;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 500px;
+      }
+
+      .tabs li {
+        flex: 1;
+        text-align: center;
+        padding: 14px;
+        cursor: pointer;
+        font-weight: 500;
+        position: relative;
+      }
+
+      /* underline effect */
+      .tabs li.active {
+        font-weight: bold;
+      }
+
+      .tabs li.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        width: 60%;
+        height: 2px;
+        background: black;
+      }
+
+      /* content area */
+      .tab-content {
+        display: none;
+        padding: 15px;
+        height: 820px;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .tab-content p {
+        padding: 6px 0px;
+        cursor: pointer;
+        border-radius: 6px;
+      }
+
+      .tab-content p:hover {
+        background: #f5f5f5;
+      }
+
+      /* ===== TAB CONTENT CONTAINER ===== */
+      .tab-content {
+        padding: 18px 20px;
+        max-height: 1000px;
+        overflow-y: auto;
+      }
+
+      /* headings */
+      .tab-content h2 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 20px 0 12px;
+        color: #222;
+      }
+
+      /* ===== TRANSLATION SECTION ===== */
+      .tranlation-with-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        background: #fafafa;
+      }
+
+      .tranlations h3 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .tranlations p {
+        font-size: 13px;
+        color: #666;
+      }
+
+      /* toggle button */
+      .toggle-button button {
+        padding: 8px 14px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .toggle-button button:hover {
+        background: #f5f5f5;
+      }
+
+      /* ===== LANGUAGE GRID ===== */
+      .Suggested-lang,
+      .Choose-lang,
+      .choose-currency {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      /* language card */
+      .lang,
+      .currency {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          border 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      /* hover effect */
+      .lang:hover,
+      .currency:hover {
+        background: #f7f7f7;
+        border: 1px solid #ddd;
+      }
+
+      /* language text */
+      .lang p,
+      .currency p {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        color: #222;
+      }
+
+      .lang span,
+      .currency span {
+        font-size: 14px;
+        color: #717171;
+      }
+
+      /* ===== SCROLLBAR (AIRBNB STYLE) ===== */
+      .tab-content::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .tab-content::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 6px;
+      }
+
+
+      /* become host  */
+      /* ===== MAIN CONTAINER ===== */
+        .host-overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 80px;
+            z-index: 2000;
+            animation: slideDown 0.3s ease;
+        }
+
+
+         @keyframes slideDown {
+            from {
+                transform: translateY(240px); /* start below */
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0); /* final position */
+                opacity: 1;
+            }
+        }
+
+
+        .become-host {
+            display: flex;
+            flex-direction: column;
+            width: 720px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px 35px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .become-host button {
+             text-align: left;
+        }
+
+        /* ===== HEADING ===== */
+        .become-host .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .become-host h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        /* ===== OPTIONS CONTAINER ===== */
+        .three-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* ===== OPTION CARD ===== */
+        .first-option {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        /* image */
+        .first-option img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* text */
+        .first-option span {
+            font-size: 16px;
+            font-weight: 500;
+            color: #222;
+        }
+
+        /* hover effect */
+        .first-option:hover {
+            border-color: #000;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        }
+
+        /* ===== NEXT BUTTON ===== */
+        .next-button {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-button button {
+            background: #ff385c;
+            color: white;
+            border: none;
+            padding: 12px 26px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .next-button button:hover {
+            background: #e11d48;
+        }
+
+
+        /* main-content */
+        /* ===== MAIN CONTAINER ===== */
+        .main {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* ===== SECTION HEADER ===== */
+        .original > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .original h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .original > p {
+            margin-top: 6px;
+            color: #717171;
+            font-size: 14px;
+        }
+
+        .left-part-interesting{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        .show-full-btn img{
+            width: 20px;
+             
+        }
+
+        .show-full-btn:hover{
+            cursor: pointer;
+          
+        }
+        .arrow-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* arrow button */
+        .arrow-button {
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+      
+        }
+        .arrow-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+
+        .arrow-button:hover {
+            background: #f7f7f7;
+        }
+
+        /* ===== HORIZONTAL CARD CONTAINER ===== */
+        .card-horizontally {
+            display: flex;
+            gap: 18px;
+            margin-top: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+  
+            scroll-snap-type: x mandatory;   /* IMPORTANT */
+        }
+
+        .card-horizontally::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            min-width: 260px;
+            background: white;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: transform 0.25s ease;
+            
+            scroll-snap-align: start;   /* IMPORTANT */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== IMAGE PART ===== */
+        .image-part {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .image-part img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* top overlay */
+        .one-image-part {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Original label */
+        .one-image-part p {
+            background: white;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* download button */
+        .one-image-part button {
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* ===== CONTENT PART ===== */
+        .content-part {
+            padding: 10px 4px;
+        }
+
+        .content-part h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .content-part p {
+            font-size: 13px;
+            color: #717171;
+            margin: 2px 0;
+        }
+
+        .content-part p:last-child {
+            font-weight: 600;
+            color: #222;
+        }
+
+        /* happening section  */
+        .Happening > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Happening h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .Happening > p {
+            margin-top: 6px;
+            color: #717171;
+            font-size: 14px;
+        }
+
+        /* for tomorrow section  */
+         .Tomorrow > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Tomorrow h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .Tomorrow > p {
+            margin-top: 6px;
+            color: #717171;
+            font-size: 14px;
+        }
+
+        /* Experience-this-weekend */
+        .Experience-this-weekend > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Experience-this-weekend h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .Experience-this-weekend > p {
+            margin-top: 6px;
+            color: #717171;
+            font-size: 14px;
+        }
+
+        .main h1 {
+            padding: 33px 0px 25px 0px;
+        }
+
+        /* last-part */
+
+        .last-part {
+            max-width: 1280px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .last-part h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        .second-inside-last-part {
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 25px;
+        }
+
+        /* tabs container */
+        .tabs-last-part {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        .tabs-last-part::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* tab item */
+        .tabs-last-part li {
+            padding: 14px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #717171;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .tabs-last-part li:hover {
+            color: #000;
+        }
+
+        /* active tab */
+        .tabs-last-part li.active {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* underline */
+        .tabs-last-part li.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 2px;
+            background: black;
+        }
+
+        .tab-content {
+            display: none;
+            height: 70px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .popular-content {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 18px 24px;
+        }
+
+        .popular {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            cursor: pointer;
+        }
+
+        .popular p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #222;
+            margin: 0;
+        }
+
+        .popular span {
+            font-size: 13px;
+            color: #717171;
+        }
+
+        .popular:hover p {
+            text-decoration: underline;
+        }
+
+
+        @media (max-width: 1200px) {
+            .popular-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .popular-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* footer  */
+        .footer {
+            background: #f7f7f7;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 60px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .first-upper-part {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 20px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+
+        .first-upper-part ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .first-upper-part li {
+            font-size: 14px;
+            color: #222;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .first-upper-part li:hover {
+            text-decoration: underline;
+        }
+
+
+        .second-lower-part {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 18px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+
+        .right-footer-part ul,
+        .left-footer-part ul {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .right-footer-part li,
+        .left-footer-part li {
+            font-size: 13px;
+            color: #222;
+            cursor: pointer;
+        }
+
+        .right-footer-part li:hover,
+        .left-footer-part li:hover {
+            text-decoration: underline;
+        }
+
+
+        .left-footer-part img {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .left-footer-part img:hover {
+            opacity: 1;
+        }
+
+
+        @media (max-width: 900px) {
+            .first-upper-part {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .second-lower-part {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+        }
+
+
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='icons/airbnb.png') }}"
+            alt="logo"
+          />
+        </div>
+
+        <ul class="nav-links">
+          <li class="nav-item">
+            <video
+              class="nav-icon"
+              muted
+              autoplay
+              playsinline
+              disablepictureinpicture
+              controlslist="nodownload nofullscreen noremoteplayback"
+              width="60"
+            >
+              <source
+                src="https://a0.muscache.com/videos/search-bar-icons/webm/house-selected.webm"
+                type="video/webm"
+              /></video
+            ><a href="./search.html">Homes</a>
+          </li>
+          <li class="nav-item">
+            <video
+              class="nav-icon"
+              muted
+              playsinline
+              disablepictureinpicture
+              width="60"
+            >
+              <source
+                src="https://a0.muscache.com/videos/search-bar-icons/webm/balloon-selected.webm"
+                type="video/webm"
+              />
+            </video>
+            <a href="#">Experiences</a>
+          </li>
+          <li class="nav-item">
+            <video
+              class="nav-icon"
+              muted
+              playsinline
+              disablepictureinpicture
+              width="60"
+            >
+              <source
+                src="https://a0.muscache.com/videos/search-bar-icons/webm/consierge-twirl.webm"
+                type="video/webm"
+              /></video
+            ><a href="#">Services</a>
+          </li>
+        </ul>
+
+        <div class="nav-right">
+          <p class="host-text" onclick="openHostForm('BecomeHost')">Become a host</p>
+
+          <img
+            src="{{ url_for('static', filename='icons/website_icons.jpg') }}"
+            alt="website_icons"
+            id="website_icons"
+            onclick="openForm('Translation')"
+          />
+
+          <div class="profile">
+            <img
+              src="{{ url_for('static', filename='icons/menubarjpg1.jpg') }}"
+              alt="setting"
+              id="menubarIcon"
+            />
+
+            <div class="dropdown" id="dropdownMenu">
+              <ul>
+                <li><button>Help Center</button></li>
+
+                <li class="host-box">
+                  <button>Become a Host</button>
+                  <p>It's easy to start hosting and earn extra income</p>
+                </li>
+
+                <li><button>Refer a Host</button></li>
+                <li><button>Find a Co-host</button></li>
+
+                <li class="login-btn">
+                  <button>Login or Sign Up</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <form action="../index.html">
+        <div class="search-bar">
+          <div class="search-item">
+            <label>Where</label>
+            <input type="text" placeholder="Search destinations" />
+            <div class="dropdown">
+              <p>Delhi</p>
+              <p>Mumbai</p>
+              <p>Bangalore</p>
+              <p>Jaipur</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="search-item">
+            <label>Check in</label>
+            <input type="date" placeholder="Add dates" />
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="search-item">
+            <label>Check out</label>
+            <input type="date" placeholder="Add dates" />
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="search-item extraCSS">
+            <div>
+              <label>Who</label>
+              <input type="text" placeholder="Add guests" />
+            </div>
+            <div>
+              <button class="search-btn">🔍</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </header>
+
+    <main class="main">
+      <div class="original">
+          <div>
+              <div class="left-part-interesting">
+                  <h2>Airbnb Originals</h2>
+                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
+              </div>
+              <div class="arrow-group">
+                <button class="arrow-button" id="leftBtn" onclick="scrollCardLeft()">←</button>
+                <button class="arrow-button" id="rightBtn" onclick="scrollCardRight()">→</button>
+              </div>
+          </div>
+          <p>Hosted by the world's most interesting people</p>
+          <div class="card-horizontally" id="originalScroll">
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+          </div>
+      </div>
+
+      <div class="Happening">
+           <div>
+              <div class="left-part-interesting">
+                  <h3>Tomorrow in Jaipur</h3>
+                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
+              </div>
+              <div class="arrow-group">
+                <button class="arrow-button" id="leftBtn2" onclick="scrollCard2Left()">←</button>
+                <button class="arrow-button" id="rightBtn2" onclick="scrollCard2Right()">→</button>
+              </div>
+          </div>
+           
+          <div class="card-horizontally" id="happeningScroll">
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+          </div>
+      </div>
+
+      
+      <h1>Popular with travellers from your area</h1>
+      <div class="Tomorrow">
+         <div>
+              <div class="left-part-interesting">
+                  <h3>Experiences this weekend</h3>
+                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
+              </div>
+              <div class="arrow-group">
+                <button class="arrow-button" id="leftBtn3" onclick="scrollCard3Left()">←</button>
+                <button class="arrow-button" id="rightBtn3" onclick="scrollCard3Right()">→</button>
+              </div>
+          </div>
+           
+          <div class="card-horizontally" id="tomorrowScroll">
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+          </div>
+      </div>
+
+      <div class="Experience-this-weekend">
+           <div>
+              <div class="left-part-interesting">
+                  <h3>All experiences in Jaipur</h3>
+                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
+              </div>
+              <div class="arrow-group">
+                <button class="arrow-button" id="leftBtn4" onclick="scrollCard4Left()">←</button>
+                <button class="arrow-button" id="rightBtn4" onclick="scrollCard4Right()">→</button>
+              </div>
+          </div>
+          
+          
+          <div class="card-horizontally" id="ExperienceScroll">
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+               <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+               </div>
+          </div>
+      </div>
+
+
+
+      <div class="last-part">
+           <h3>Inspiration for Future getaways</h3>
+           <div class="second-inside-last-part">
+                    <!-- Tabs -->
+                    <ul class="tabs-last-part">
+                        <li class="active" onclick="openTab(event,'Popular')"">
+                        Popular
+                        </li>
+                        <li onclick="openTab(event,'Arts')">Arts & culture</li>
+                        <li onclick="openTab(event,'Beach')">Beach</li>
+                        <li onclick="openTab(event,'Mountains')">Mountains</li>
+                        <li onclick="openTab(event,'Outdoors')">Outdoors</li>
+                        <li onclick="openTab(event,'Things')">Things to do</li>
+                    </ul>
+                </div>
+
+            <!-- Content -->
+                <div class="tab-content active" id="Popular"> 
+                    <div class="popular-content">
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                     
+                    </div>
+                    
+                </div>
+
+                <div class="tab-content " id="Arts"> 
+                    <div class="popular-content">
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                     
+                    </div>
+                    
+                </div>
+
+                <div class="tab-content " id="Beach"> 
+                    <div class="popular-content">
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                       
+                    </div>
+                    
+                </div>
+
+                <div class="tab-content  " id="Mountains"> 
+                    <div class="popular-content">
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                     
+                     
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                       
+                    </div>
+                    
+                </div>
+
+                 <div class="tab-content  " id="Outdoors"> 
+                    <div class="popular-content">
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                       
+                    </div>
+                    
+                </div>
+
+                 <div class="tab-content  " id="Things"> 
+                    <div class="popular-content">
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+                       
+                    </div>
+                    
+                </div>
+           </div>
+      </div>
+    </main>
+
+    <!-- ===== OVERLAY FORM ===== -->
+    <div class="overlay" id="overlay">
+      <div class="form-box">
+          
+          <div class="overlay-form">
+           <div class="close-btn-lang">
+            <button class="close-btn" onclick="closeForm()">✖</button>
+            <!-- Tabs -->
+            <ul class="tabs">
+                <li class="active" onclick="openTab(event,'language')"">
+                Language and region
+                </li>
+                <li onclick="openTab(event,'currency')">Currency</li>
+            </ul>
+          </div>
+
+          <!-- Content -->
+          <div class="tab-content active" id="language">
+            <div class="tranlation-with-toggle">
+              <div class="tranlations">
+                <h3>Tranlation <img src="" alt="" /></h3>
+                <p>
+                  Automatically translate description and reviews to English
+                </p>
+              </div>
+              <div class="toggle-button">
+                <button>button</button>
+              </div>
+            </div>
+
+            <h2>Suggested languages and regions</h2>
+            <div class="Suggested-lang">
+              <div class="lang">
+                <p>English</p>
+                <span>United States</span>
+              </div>
+              <div class="lang">
+                <p>English</p>
+                <span>United Kingdom</span>
+              </div>
+
+              <div class="lang">
+                <p>हिन्दी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>ಕನ್ನಡ</p>
+                <span>ಭಾರತ</span>
+              </div>
+              <div class="lang">
+                <p>मराठी</p>
+                <span>भारत</span>
+              </div>
+            </div>
+            <h2>Choose a language and region</h2>
+            <div class="Choose-lang">
+              <div class="lang">
+                <p>English</p>
+                <span>United States</span>
+              </div>
+              <div class="lang">
+                <p>English</p>
+                <span>United Kingdom</span>
+              </div>
+
+              <div class="lang">
+                <p>हिन्दी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>ಕನ್ನಡ</p>
+                <span>ಭಾರತ</span>
+              </div>
+              <div class="lang">
+                <p>मराठी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>हिन्दी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>ಕನ್ನಡ</p>
+                <span>ಭಾರತ</span>
+              </div>
+              <div class="lang">
+                <p>मराठी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>हिन्दी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>ಕನ್ನಡ</p>
+                <span>ಭಾರತ</span>
+              </div>
+              <div class="lang">
+                <p>मराठी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>हिन्दी</p>
+                <span>भारत</span>
+              </div>
+              <div class="lang">
+                <p>ಕನ್ನಡ</p>
+                <span>ಭಾರತ</span>
+              </div>
+              <div class="lang">
+                <p>मराठी</p>
+                <span>भारत</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="currency">
+            <h2>Choose a currency</h2>
+            <div class="choose-currency">
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+              <div class="currency">
+                <p>Indian rupee</p>
+                <span>INR – ₹</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="host-overlay" id="host-overlay">
+        <div class="become-host" id="become-host">
+            <button class="close-btn" onclick="closeHostForm()">✖</button>
+            <div class="heading">
+                <h2>What would you like to host?</h2>
+            </div>
+            <div class="three-options">
+                <div class="first-option">
+                        <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Home">
+                        <span>Home</span>
+                </div>
+                <div class="first-option">
+                        <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Experience">
+                        <span>Experience</span>
+                </div>
+                <div class="first-option">
+                        <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Service">
+                        <span>Service</span>
+                </div>
+            </div>
+            <div class="next-button">
+                <button>Next</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="first-upper-part">
+            <div class="Support">
+                <ul>
+                    <li>Help Centre</li>
+                    <li>Help Centre</li>
+                    <li>Help Centre</li>
+                    <li>Help Centre</li>
+                    <li>Help Centre</li>
+                </ul>
+            </div>
+            <div class="Hosting">
+                <ul>
+                    <li>Airbnb you home</li>
+                    <li>Airbnb you home</li>
+                    <li>Airbnb you home</li>
+                    <li>Airbnb you home</li>
+                    <li>Airbnb you home</li>
+                </ul>
+            </div>
+            <div class="Airbnb">
+                <ul>
+                    <li>Investors</li>
+                    <li>Investors</li>
+                    <li>Investors</li>
+                    <li>Investors</li>
+                    <li>Investors</li>
+                    <li>Investors</li>
+                </ul>
+            </div>
+        </div>
+        <div class="second-lower-part">
+               <div class="right-footer-part">
+                    <ul>
+                        <li>@2026 Airbnb,Inc.</li>
+                        <li>Privacy</li>
+                        <li>Privacy</li>
+                        <li>Privacy</li>
+                        <li>Privacy</li>
+                    </ul>
+               </div>
+               <div class="left-footer-part">
+                    <ul>
+                        <li>English(IN)</li>
+                        <li>INR</li>
+                        <li><img src="" alt="facebook"></li>
+                        <li><img src="" alt="X"></li>
+                        <li><img src="" alt="instagram"></li>
+                    </ul>
+               </div>
+        </div>
+    </footer>
+
+    <script>
+      const icon = document.getElementById("menubarIcon");
+      const dropdown = document.getElementById("dropdownMenu");
+
+      icon.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      });
+
+      dropdown.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+
+      document.addEventListener("click", function () {
+        dropdown.style.display = "none";
+      });
+ 
+      const navItems = document.querySelectorAll(".nav-item");
+
+      navItems.forEach((item) => {
+        const video = item.querySelector("video");
+
+        item.addEventListener("mouseenter", () => {
+          video.currentTime = 0;
+          video.play();
+        });
+
+        item.addEventListener("mouseleave", () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+
+      //   overlay form
+
+      function openForm(title) {
+        document.getElementById("overlay").style.display = "flex";
+        console.log("hello")
+      }
+
+      function closeForm() {
+        document.getElementById("overlay").style.display = "none";
+      }
+
+      /* close when clicking outside */
+      document
+        .getElementById("overlay")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeForm();
+          }
+        });
+
+        function openTab(event, tabId) {
+            document.querySelectorAll(".tabs li")
+                .forEach(li => li.classList.remove("active"));
+
+            document.querySelectorAll(".tab-content")
+                .forEach(div => div.classList.remove("active"));
+
+            event.target.classList.add("active");
+
+            document.getElementById(tabId).classList.add("active");
+        }
+    
+
+        // become host form 
+
+        
+        function openHostForm() {
+            document.getElementById("host-overlay").style.display = "flex";
+            console.log("hostform")
+        }
+
+        function closeHostForm() {
+            document.getElementById("host-overlay").style.display = "none";
+        }
+
+        /* close when clicking outside */
+        document.getElementById("host-overlay")
+        .addEventListener("click", function (e) {
+
+            if (e.target === this) {
+                closeHostForm();
+            }
+        });
+         
+
+        // for original section 
+       function scrollCardRight() {
+            const container = document.getElementById("originalScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+        function scrollCardLeft() {
+            console.log("hello")
+            const container = document.getElementById("originalScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: -container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+
+        const container = document.getElementById("originalScroll");
+        const leftBtn = document.getElementById("leftBtn");
+        const rightBtn = document.getElementById("rightBtn");
+
+        function updateButtons() {
+            leftBtn.disabled = container.scrollLeft <= 0;
+
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            rightBtn.disabled =  Math.ceil(container.scrollLeft) >= maxScroll;
+            
+        }
+
+        container.addEventListener("scroll", updateButtons);
+        window.addEventListener("load", updateButtons);
+
+
+        // for happening section 
+
+       function scrollCard2Right() {
+            const container = document.getElementById("happeningScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+        function scrollCard2Left() {
+            console.log("hello")
+            const container = document.getElementById("happeningScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: -container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+
+        const container2 = document.getElementById("happeningScroll");
+        const leftBtn2 = document.getElementById("leftBtn2");
+        const rightBtn2 = document.getElementById("rightBtn2");
+
+        function updateButtons2() {
+            leftBtn2.disabled = container2.scrollLeft <= 0;
+
+            const maxScroll = container2.scrollWidth - container2.clientWidth;
+            rightBtn2.disabled =  Math.ceil(container2.scrollLeft) >= maxScroll;
+        }
+
+        container2.addEventListener("scroll", updateButtons2);
+        window.addEventListener("load", updateButtons2);
+ 
+
+        // for tomorrow section 
+
+        function scrollCard3Right() {
+            const container = document.getElementById("tomorrowScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+        function scrollCard3Left() {
+            console.log("hello")
+            const container = document.getElementById("tomorrowScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: -container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+
+        const container3 = document.getElementById("tomorrowScroll");
+        const leftBtn3 = document.getElementById("leftBtn3");
+        const rightBtn3 = document.getElementById("rightBtn3");
+
+        function updateButtons3() {
+            leftBtn3.disabled = container3.scrollLeft <= 0;
+
+            const maxScroll = container3.scrollWidth - container3.clientWidth;
+            rightBtn3.disabled =  Math.ceil(container3.scrollLeft) >= maxScroll;
+        }
+
+        container3.addEventListener("scroll", updateButtons3);
+        window.addEventListener("load", updateButtons3);
+
+
+        // for experience 
+
+        function scrollCard4Right() {
+            const container = document.getElementById("ExperienceScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+        function scrollCard4Left() {
+            console.log("hello")
+            const container = document.getElementById("ExperienceScroll");
+            const card = container.querySelector(".card");
+
+            container.scrollBy({
+                left: -container.clientWidth,
+                behavior: "smooth"
+            });
+        }
+
+
+        const container4 = document.getElementById("ExperienceScroll");
+        const leftBtn4 = document.getElementById("leftBtn4");
+        const rightBtn4 = document.getElementById("rightBtn4");
+
+        function updateButtons4() {
+            leftBtn4.disabled = container4.scrollLeft <= 0;
+
+            const maxScroll = container4.scrollWidth - container4.clientWidth;
+            rightBtn4.disabled =  Math.ceil(container4.scrollLeft) >= maxScroll;
+        }
+
+        container4.addEventListener("scroll", updateButtons4);
+        window.addEventListener("load", updateButtons4);
+    </script>
+  </body>
+</html>
