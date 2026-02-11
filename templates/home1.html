@@ -1,266 +1,268 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* navbar  */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-      }
+        /* navbar  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-      body {
-        background: #f7f7f7;
-      }
+        body {
+            background: #f7f7f7;
+        }
 
-      .header {
-        width: 1248px;
-        margin: 0 auto;
-      }
+        .header {
+            width: 1248px;
+            margin: 0 auto;
+        }
 
-      /* Navbar */
-      .navbar {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 40px;
-        background: rgb(243, 234, 234);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        position: relative;
-        z-index: 100;
-      }
+        /* Navbar */
+        .navbar {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgb(243, 234, 234);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 100;
+        }
 
-      /* Logo */
-      .logo img {
-        height: 35px;
-      }
+        /* Logo */
+        .logo img {
+            height: 35px;
+        }
 
-      /* Center Menu */
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-      }
+        /* Center Menu */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-      .nav-links a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-      }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
 
-      .nav-links a:hover {
-        color: #ff385c;
-      }
+        .nav-links a:hover {
+            color: #ff385c;
+        }
 
-      .nav-links li {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .nav-links li img {
-        width: 60px;
-        transition: transform 0.2s ease;
-      }
+        .nav-links li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-      .nav-links li:hover img {
-        transform: scale(1.08);
-      }
+        .nav-links li img {
+            width: 60px;
+            transition: transform 0.2s ease;
+        }
 
-      .nav-icon {
-        transition: transform 0.2s ease;
-        cursor: pointer;
-      }
+        .nav-links li:hover img {
+            transform: scale(1.08);
+        }
 
-      .nav-icon:hover {
-        transform: scale(1.08);
-      }
+        .nav-icon {
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
 
-      /* Right Section */
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        justify-content: center;
-      }
+        .nav-icon:hover {
+            transform: scale(1.08);
+        }
 
-      .host-text {
-        font-weight: 500;
-        cursor: pointer;
-      }
+        /* Right Section */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+        }
 
-      .profile {
-        position: relative;
-        cursor: pointer;
-      }
+        .host-text {
+            font-weight: 500;
+            cursor: pointer;
+        }
 
-      .profile img {
-        width: 32px;
-        border-radius: 50%;
-      }
+        .profile {
+            position: relative;
+            cursor: pointer;
+        }
 
-      /* Navbar Dropdown */
-      .profile .dropdown {
-        position: absolute;
-        right: 0;
-        top: 45px;
-        background: white;
-        width: 260px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        display: none;
-        z-index: 200;
-      }
+        .profile img {
+            width: 32px;
+            border-radius: 50%;
+        }
 
-      .dropdown ul {
-        list-style: none;
-        padding: 10px;
-      }
+        /* Navbar Dropdown */
+        .profile .dropdown {
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background: white;
+            width: 260px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 200;
+        }
 
-      .dropdown li {
-        padding: 8px 10px;
-      }
+        .dropdown ul {
+            list-style: none;
+            padding: 10px;
+        }
 
-      .dropdown button {
-        width: 100%;
-        background: none;
-        border: none;
-        text-align: left;
-        font-size: 14px;
-        cursor: pointer;
-      }
+        .dropdown li {
+            padding: 8px 10px;
+        }
 
-      .dropdown button:hover {
-        background: #f2f2f2;
-        border-radius: 6px;
-      }
+        .dropdown button {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+        }
 
-      .host-box p {
-        font-size: 12px;
-        color: gray;
-      }
+        .dropdown button:hover {
+            background: #f2f2f2;
+            border-radius: 6px;
+        }
 
-      .login-btn button {
-        font-weight: bold;
-      }
+        .host-box p {
+            font-size: 12px;
+            color: gray;
+        }
 
-      .nav-right img {
-        width: 32px;
-      }
+        .login-btn button {
+            font-weight: bold;
+        }
 
-      /* search bar */
+        .nav-right img {
+            width: 32px;
+        }
 
-      .search-bar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        border-radius: 400px;
-        padding: 0px;
-        width: 790px;
-        height: 55px;
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-        margin: 80px auto;
-        position: relative;
-        z-index: 1;
-      }
+        /* search bar */
 
-      .search-item {
-        display: flex;
-        flex-direction: column;
-        padding: 16px;
-        border-radius: 400px;
-        margin-bottom: -7px;
-        position: relative;
-        cursor: pointer;
-      }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 400px;
+            padding: 0px;
+            width: 790px;
+            height: 55px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+            margin: 80px auto;
+            position: relative;
+            z-index: 1;
+        }
 
-      .search-item:hover {
-        background-color: #f2f2f2;
-      }
+        .search-item {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            border-radius: 400px;
+            margin-bottom: -7px;
+            position: relative;
+            cursor: pointer;
+        }
 
-      .extraCSS {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        height: 31px;
-      }
+        .search-item:hover {
+            background-color: #f2f2f2;
+        }
 
-      .search-item label {
-        display: block;
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 4px;
-      }
+        .extraCSS {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: 31px;
+        }
 
-      .search-item input {
-        border: none;
-        outline: none;
-        width: 100%;
-        font-size: 14px;
-        color: #555;
-        background: transparent;
-      }
+        .search-item label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
 
-      .divider {
-        width: 1px;
-        height: 40px;
-        background-color: #ddd;
-      }
+        .search-item input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: #555;
+            background: transparent;
+        }
 
-      .search-btn {
-        background-color: #ff385c;
-        border: none;
-        color: white;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        font-size: 18px;
-        cursor: pointer;
-        margin-left: 30px;
-        margin-right: -10px;
-        margin-bottom: 6px;
-      }
+        .divider {
+            width: 1px;
+            height: 40px;
+            background-color: #ddd;
+        }
 
-      .search-btn:hover {
-        background-color: #e11d48;
-      }
+        .search-btn {
+            background-color: #ff385c;
+            border: none;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: 30px;
+            margin-right: -10px;
+            margin-bottom: 6px;
+        }
 
-      /* Search Dropdown */
-      .search-item .dropdown {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 250px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        padding: 10px;
-        display: none;
-        z-index: 150;
-      }
+        .search-btn:hover {
+            background-color: #e11d48;
+        }
 
-      .search-item .dropdown p {
-        padding: 10px;
-        margin: 0;
-        cursor: pointer;
-      }
+        /* Search Dropdown */
+        .search-item .dropdown {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 250px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 10px;
+            display: none;
+            z-index: 150;
+        }
 
-      .search-item .dropdown p:hover {
-        background: #f5f5f5;
-        border-radius: 8px;
-      }
+        .search-item .dropdown p {
+            padding: 10px;
+            margin: 0;
+            cursor: pointer;
+        }
 
-      /* ===== OVERLAY ===== */
-      .overlay {
-        /* position: fixed;
+        .search-item .dropdown p:hover {
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        /* ===== OVERLAY ===== */
+        .overlay {
+            /* position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -271,250 +273,257 @@
         align-items: flex-start;
         padding-top: 80px;
         z-index: 2000;*/
-        animation: slideDown 0.3s ease; 
-         position: fixed;
-        inset: 0;                     /* same as top:0 left:0 right:0 bottom:0 */
-        background: rgba(0,0,0,0.4);
-        display: none;
+            animation: slideDown 0.3s ease;
+            position: fixed;
+            inset: 0;
+            /* same as top:0 left:0 right:0 bottom:0 */
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
 
-        justify-content: center;
-        align-items: flex-start;
+            justify-content: center;
+            align-items: flex-start;
 
-        padding-top: 80px;
-        z-index: 2000;
-      }
-
-      /* ===== FORM BOX ===== */
-      .form-box {
-        background: white;
-        width: min(720px, 90vw);   /* responsive */
-        max-height: 85vh;
-
-        border-radius: 12px;
-        overflow: hidden;
-
-        box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-      }
-
-     @keyframes slideDown {
-        from {
-            transform: translateY(240px); /* start below */
-            opacity: 0;
+            padding-top: 80px;
+            z-index: 2000;
         }
-        to {
-            transform: translateY(0); /* final position */
-            opacity: 1;
+
+        /* ===== FORM BOX ===== */
+        .form-box {
+            background: white;
+            width: min(720px, 90vw);
+            /* responsive */
+            max-height: 85vh;
+
+            border-radius: 12px;
+            overflow: hidden;
+
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
         }
-    }
 
-      .form-box h2 {
-        margin-bottom: 15px;
-      }
+        @keyframes slideDown {
+            from {
+                transform: translateY(240px);
+                /* start below */
+                opacity: 0;
+            }
 
-      .form-box input {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-      }
+            to {
+                transform: translateY(0);
+                /* final position */
+                opacity: 1;
+            }
+        }
 
-      .close-btn {
-        float: right;
-        cursor: pointer;
-        font-size: 18px;
-        border: none;
-        background: none;
-        margin-left: 15px;
-        margin-bottom: 22px;
-      }
+        .form-box h2 {
+            margin-bottom: 15px;
+        }
 
-      .close-btn-lang {
-        display: flex;
-        flex-direction: column;
-        padding: 4px;
-        align-items: left;
-      }
+        .form-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
 
-      /* overlay container */
-      .overlay-form {
-        position: relative;   /* or remove position completely */
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        padding: 16px;
-      }
-      .close-btn{
-        display: flex;
-        align-items: left;
-      }
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            background: none;
+            margin-left: 15px;
+            margin-bottom: 22px;
+        }
 
-      /* tabs */
-      .tabs {
-        display: flex;
-        border-bottom: 1px solid #eee;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 500px;
-      }
+        .close-btn-lang {
+            display: flex;
+            flex-direction: column;
+            padding: 4px;
+            align-items: left;
+        }
 
-      .tabs li {
-        flex: 1;
-        text-align: center;
-        padding: 14px;
-        cursor: pointer;
-        font-weight: 500;
-        position: relative;
-      }
+        /* overlay container */
+        .overlay-form {
+            position: relative;
+            /* or remove position completely */
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            padding: 16px;
+        }
 
-      /* underline effect */
-      .tabs li.active {
-        font-weight: bold;
-      }
+        .close-btn {
+            display: flex;
+            align-items: left;
+        }
 
-      .tabs li.active::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 20%;
-        width: 60%;
-        height: 2px;
-        background: black;
-      }
+        /* tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 500px;
+        }
 
-      /* content area */
-      .tab-content {
-        display: none;
-        padding: 15px;
-        height: 820px;
-      }
+        .tabs li {
+            flex: 1;
+            text-align: center;
+            padding: 14px;
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+        }
 
-      .tab-content.active {
-        display: block;
-      }
+        /* underline effect */
+        .tabs li.active {
+            font-weight: bold;
+        }
 
-      .tab-content p {
-        padding: 6px 0px;
-        cursor: pointer;
-        border-radius: 6px;
-      }
+        .tabs li.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            background: black;
+        }
 
-      .tab-content p:hover {
-        background: #f5f5f5;
-      }
+        /* content area */
+        .tab-content {
+            display: none;
+            padding: 15px;
+            height: 820px;
+        }
 
-      /* ===== TAB CONTENT CONTAINER ===== */
-      .tab-content {
-        padding: 18px 20px;
-        max-height: 1000px;
-        overflow-y: auto;
-      }
+        .tab-content.active {
+            display: block;
+        }
 
-      /* headings */
-      .tab-content h2 {
-        font-size: 16px;
-        font-weight: 600;
-        margin: 20px 0 12px;
-        color: #222;
-      }
+        .tab-content p {
+            padding: 6px 0px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
 
-      /* ===== TRANSLATION SECTION ===== */
-      .tranlation-with-toggle {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        background: #fafafa;
-      }
+        .tab-content p:hover {
+            background: #f5f5f5;
+        }
 
-      .tranlations h3 {
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
+        /* ===== TAB CONTENT CONTAINER ===== */
+        .tab-content {
+            padding: 18px 20px;
+            max-height: 1000px;
+            overflow-y: auto;
+        }
 
-      .tranlations p {
-        font-size: 13px;
-        color: #666;
-      }
+        /* headings */
+        .tab-content h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 12px;
+            color: #222;
+        }
 
-      /* toggle button */
-      .toggle-button button {
-        padding: 8px 14px;
-        border-radius: 20px;
-        border: 1px solid #ddd;
-        background: white;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
+        /* ===== TRANSLATION SECTION ===== */
+        .tranlation-with-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #fafafa;
+        }
 
-      .toggle-button button:hover {
-        background: #f5f5f5;
-      }
+        .tranlations h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
 
-      /* ===== LANGUAGE GRID ===== */
-      .Suggested-lang,
-      .Choose-lang,
-      .choose-currency {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
+        .tranlations p {
+            font-size: 13px;
+            color: #666;
+        }
 
-      /* language card */
-      .lang,
-      .currency {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 12px 14px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition:
-          background 0.2s ease,
-          border 0.2s ease;
-        border: 1px solid transparent;
-      }
+        /* toggle button */
+        .toggle-button button {
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-      /* hover effect */
-      .lang:hover,
-      .currency:hover {
-        background: #f7f7f7;
-        border: 1px solid #ddd;
-      }
+        .toggle-button button:hover {
+            background: #f5f5f5;
+        }
 
-      /* language text */
-      .lang p,
-      .currency p {
-        font-size: 14px;
-        font-weight: 500;
-        margin: 0;
-        color: #222;
-      }
+        /* ===== LANGUAGE GRID ===== */
+        .Suggested-lang,
+        .Choose-lang,
+        .choose-currency {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
 
-      .lang span,
-      .currency span {
-        font-size: 14px;
-        color: #717171;
-      }
+        /* language card */
+        .lang,
+        .currency {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 12px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition:
+                background 0.2s ease,
+                border 0.2s ease;
+            border: 1px solid transparent;
+        }
 
-      /* ===== SCROLLBAR (AIRBNB STYLE) ===== */
-      .tab-content::-webkit-scrollbar {
-        width: 6px;
-      }
+        /* hover effect */
+        .lang:hover,
+        .currency:hover {
+            background: #f7f7f7;
+            border: 1px solid #ddd;
+        }
 
-      .tab-content::-webkit-scrollbar-thumb {
-        background: #ddd;
-        border-radius: 6px;
-      }
+        /* language text */
+        .lang p,
+        .currency p {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+            color: #222;
+        }
+
+        .lang span,
+        .currency span {
+            font-size: 14px;
+            color: #717171;
+        }
+
+        /* ===== SCROLLBAR (AIRBNB STYLE) ===== */
+        .tab-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .tab-content::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 6px;
+        }
 
 
-      /* become host  */
-      /* ===== MAIN CONTAINER ===== */
-        .host-overlay{
+        /* become host  */
+        /* ===== MAIN CONTAINER ===== */
+        .host-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -530,13 +539,16 @@
         }
 
 
-         @keyframes slideDown {
+        @keyframes slideDown {
             from {
-                transform: translateY(240px); /* start below */
+                transform: translateY(240px);
+                /* start below */
                 opacity: 0;
             }
+
             to {
-                transform: translateY(0); /* final position */
+                transform: translateY(0);
+                /* final position */
                 opacity: 1;
             }
         }
@@ -550,11 +562,11 @@
             background: #ffffff;
             border-radius: 16px;
             padding: 30px 35px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
-        
+
         .become-host button {
-             text-align: left;
+            text-align: left;
         }
 
         /* ===== HEADING ===== */
@@ -609,7 +621,7 @@
         .first-option:hover {
             border-color: #000;
             transform: translateY(-4px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
         /* ===== NEXT BUTTON ===== */
@@ -644,7 +656,7 @@
         }
 
         /* ===== SECTION HEADER ===== */
-        .original > div {
+        .original>div {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -656,26 +668,28 @@
             color: #222;
         }
 
-        .original > p {
+        .original>p {
             margin-top: 6px;
             color: #717171;
             font-size: 14px;
         }
 
-        .left-part-interesting{
+        .left-part-interesting {
             display: flex;
             flex-direction: row;
             gap: 10px;
         }
-        .show-full-btn img{
+
+        .show-full-btn img {
             width: 20px;
-             
+
         }
 
-        .show-full-btn:hover{
+        .show-full-btn:hover {
             cursor: pointer;
-          
+
         }
+
         .arrow-group {
             display: flex;
             gap: 8px;
@@ -690,13 +704,14 @@
             height: 36px;
             cursor: pointer;
             transition: all 0.2s ease;
-            
+
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-      
+
         }
+
         .arrow-button:disabled {
             opacity: 0.3;
             cursor: not-allowed;
@@ -715,8 +730,9 @@
             overflow-x: auto;
             scroll-behavior: smooth;
             padding-bottom: 10px;
-  
-            scroll-snap-type: x mandatory;   /* IMPORTANT */
+
+            scroll-snap-type: x mandatory;
+            /* IMPORTANT */
         }
 
         .card-horizontally::-webkit-scrollbar {
@@ -730,8 +746,9 @@
             border-radius: 14px;
             cursor: pointer;
             transition: transform 0.25s ease;
-            
-            scroll-snap-align: start;   /* IMPORTANT */
+
+            scroll-snap-align: start;
+            /* IMPORTANT */
         }
 
         .card:hover {
@@ -774,7 +791,7 @@
 
         /* download button */
         .one-image-part button {
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
             border-radius: 50%;
@@ -808,7 +825,7 @@
         }
 
         /* happening section  */
-        .Happening > div {
+        .Happening>div {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -820,14 +837,14 @@
             color: #222;
         }
 
-        .Happening > p {
+        .Happening>p {
             margin-top: 6px;
             color: #717171;
             font-size: 14px;
         }
 
         /* for tomorrow section  */
-         .Tomorrow > div {
+        .Tomorrow>div {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -839,14 +856,14 @@
             color: #222;
         }
 
-        .Tomorrow > p {
+        .Tomorrow>p {
             margin-top: 6px;
             color: #717171;
             font-size: 14px;
         }
 
         /* Experience-this-weekend */
-        .Experience-this-weekend > div {
+        .Experience-this-weekend>div {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -858,7 +875,7 @@
             color: #222;
         }
 
-        .Experience-this-weekend > p {
+        .Experience-this-weekend>p {
             margin-top: 6px;
             color: #717171;
             font-size: 14px;
@@ -1088,161 +1105,328 @@
         }
 
 
+        /* login and signup  */
+        /* ===== OVERLAY BACKGROUND ===== */
+        .login-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        /* ===== LOGIN BOX ===== */
+        .become-login {
+            background: white;
+            width: 420px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            animation: popup 0.3s ease;
+        }
+
+        /* POPUP ANIMATION */
+        @keyframes popup {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== TOP HEADER ===== */
+        .first-upper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .first-upper h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .first-upper button {
+            position: absolute;
+            left: 15px;
+            border: none;
+            background: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* ===== MIDDLE SECTION ===== */
+        .second-between {
+            padding: 20px 25px;
+        }
+
+        .second-between h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        /* INPUT GROUP */
+        .input-group {
+            margin-bottom: 15px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 2px;
+        }
+
+        .input-group p {
+            margin: 10px 0px 0px 17px;
+            font-size: 14px;
+            color: #444;
+
+        }
+
+        .input-group select,
+        .input-group input {
+            width: 90%;
+            padding: 0px 12px 12px 12px;
+            margin: 0 3px 0 3px;
+            /* border-radius: 8px; */
+            /* border: 1px solid #ccc; */
+            border: none;
+            font-size: 15px;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #ff385c;
+            box-shadow: 0px 0px 4px rgba(255, 56, 92, 0.3);
+        }
+
+        /* CONTINUE BUTTON */
+        .second-between button {
+            width: 100%;
+            padding: 12px;
+            background: #ff385c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .second-between button:hover {
+            background: #e03150;
+        }
+
+        /* ===== BOTTOM SOCIAL LOGIN ===== */
+        .third-bottom {
+            border-top: 1px solid #eee;
+            padding: 15px 25px 20px;
+        }
+
+        .third-bottom div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .third-bottom div:hover {
+            background: #f7f7f7;
+        }
+
+        .third-bottom p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .become-login {
+                width: 90%;
+            }
+        }
+
+        .input-group.floating {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* INPUT STYLE */
+        .input-group.floating input {
+            width: 90%;
+            padding: 17px 0px 12px 0px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* LABEL DEFAULT POSITION */
+        .input-group.floating label {
+            position: absolute;
+            left: 12px;
+            top: 14px;
+            background: white;
+            padding: 0 5px;
+            color: #777;
+            font-size: 16px;
+            transition: 0.2s ease;
+            pointer-events: none;
+        }
+
+        /* WHEN INPUT IS FOCUSED OR HAS VALUE */
+        .input-group.floating input:focus+label,
+        .input-group.floating input:not(:placeholder-shown)+label {
+            top: 2px;
+            font-size: 14px;
+            color: #635050;
+        }
+
+        /* FOCUS BORDER */
+        .input-group.floating input:focus {
+            border-color: #fcf9fa;
+            box-shadow: 0px 0px 4px rgba(255, 56, 92, 0.3);
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header class="header">
-      <nav class="navbar">
-        <div class="logo">
-          <img
-            src="{{ url_for('static', filename='icons/airbnb.png') }}"
-            alt="logo"
-          />
-        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icons/airbnb.png') }}" alt="logo" />
+            </div>
 
-        <ul class="nav-links">
-          <li class="nav-item">
-            <video
-              class="nav-icon"
-              muted
-              autoplay
-              playsinline
-              disablepictureinpicture
-              controlslist="nodownload nofullscreen noremoteplayback"
-              width="60"
-            >
-              <source
-                src="https://a0.muscache.com/videos/search-bar-icons/webm/house-selected.webm"
-                type="video/webm"
-              /></video
-            ><a href="./search.html">Homes</a>
-          </li>
-          <li class="nav-item">
-            <video
-              class="nav-icon"
-              muted
-              playsinline
-              disablepictureinpicture
-              width="60"
-            >
-              <source
-                src="https://a0.muscache.com/videos/search-bar-icons/webm/balloon-selected.webm"
-                type="video/webm"
-              />
-            </video>
-            <a href="#">Experiences</a>
-          </li>
-          <li class="nav-item">
-            <video
-              class="nav-icon"
-              muted
-              playsinline
-              disablepictureinpicture
-              width="60"
-            >
-              <source
-                src="https://a0.muscache.com/videos/search-bar-icons/webm/consierge-twirl.webm"
-                type="video/webm"
-              /></video
-            ><a href="#">Services</a>
-          </li>
-        </ul>
-
-        <div class="nav-right">
-          <p class="host-text" onclick="openHostForm('BecomeHost')">Become a host</p>
-
-          <img
-            src="{{ url_for('static', filename='icons/website_icons.jpg') }}"
-            alt="website_icons"
-            id="website_icons"
-            onclick="openForm('Translation')"
-          />
-
-          <div class="profile">
-            <img
-              src="{{ url_for('static', filename='icons/menubarjpg1.jpg') }}"
-              alt="setting"
-              id="menubarIcon"
-            />
-
-            <div class="dropdown" id="dropdownMenu">
-              <ul>
-                <li><button>Help Center</button></li>
-
-                <li class="host-box">
-                  <button>Become a Host</button>
-                  <p>It's easy to start hosting and earn extra income</p>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <video class="nav-icon" muted autoplay playsinline disablepictureinpicture
+                        controlslist="nodownload nofullscreen noremoteplayback" width="60">
+                        <source src="https://a0.muscache.com/videos/search-bar-icons/webm/house-selected.webm"
+                            type="video/webm" />
+                    </video><a href="./search.html">Homes</a>
                 </li>
-
-                <li><button>Refer a Host</button></li>
-                <li><button>Find a Co-host</button></li>
-
-                <li class="login-btn">
-                  <button>Login or Sign Up</button>
+                <li class="nav-item">
+                    <video class="nav-icon" muted playsinline disablepictureinpicture width="60">
+                        <source src="https://a0.muscache.com/videos/search-bar-icons/webm/balloon-selected.webm"
+                            type="video/webm" />
+                    </video>
+                    <a href="#">Experiences</a>
                 </li>
-              </ul>
+                <li class="nav-item">
+                    <video class="nav-icon" muted playsinline disablepictureinpicture width="60">
+                        <source src="https://a0.muscache.com/videos/search-bar-icons/webm/consierge-twirl.webm"
+                            type="video/webm" />
+                    </video><a href="#">Services</a>
+                </li>
+            </ul>
+
+            <div class="nav-right">
+                <p class="host-text" onclick="openHostForm('BecomeHost')">Become a host</p>
+
+                <img src="{{ url_for('static', filename='icons/website_icons.jpg') }}" alt="website_icons"
+                    id="website_icons" onclick="openForm('Translation')" />
+
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='icons/menubarjpg1.jpg') }}" alt="setting"
+                        id="menubarIcon" />
+
+                    <div class="dropdown" id="dropdownMenu">
+                        <ul>
+                            <li><button>Help Center</button></li>
+
+                            <li class="host-box">
+                                <button>Become a Host</button>
+                                <p>It's easy to start hosting and earn extra income</p>
+                            </li>
+
+                            <li><button>Refer a Host</button></li>
+                            <li><button>Find a Co-host</button></li>
+
+                            <li class="login-btn">
+                                <button onclick="openLoginForm()">Login or Sign Up</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </nav>
-      <form action="../index.html">
-        <div class="search-bar">
-          <div class="search-item">
-            <label>Where</label>
-            <input type="text" placeholder="Search destinations" />
-            <div class="dropdown">
-              <p>Delhi</p>
-              <p>Mumbai</p>
-              <p>Bangalore</p>
-              <p>Jaipur</p>
+        </nav>
+        <form action="../index.html">
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>Where</label>
+                    <input type="text" placeholder="Search destinations" />
+                    <div class="dropdown">
+                        <p>Delhi</p>
+                        <p>Mumbai</p>
+                        <p>Bangalore</p>
+                        <p>Jaipur</p>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="search-item">
+                    <label>Check in</label>
+                    <input type="date" placeholder="Add dates" />
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="search-item">
+                    <label>Check out</label>
+                    <input type="date" placeholder="Add dates" />
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="search-item extraCSS">
+                    <div>
+                        <label>Who</label>
+                        <input type="text" placeholder="Add guests" />
+                    </div>
+                    <div>
+                        <button class="search-btn">🔍</button>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="search-item">
-            <label>Check in</label>
-            <input type="date" placeholder="Add dates" />
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="search-item">
-            <label>Check out</label>
-            <input type="date" placeholder="Add dates" />
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="search-item extraCSS">
-            <div>
-              <label>Who</label>
-              <input type="text" placeholder="Add guests" />
-            </div>
-            <div>
-              <button class="search-btn">🔍</button>
-            </div>
-          </div>
-        </div>
-      </form>
+        </form>
     </header>
 
     <main class="main">
-      <div class="original">
-          <div>
-              <div class="left-part-interesting">
-                  <h2>Airbnb Originals</h2>
-                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
-              </div>
-              <div class="arrow-group">
-                <button class="arrow-button" id="leftBtn" onclick="scrollCardLeft()">←</button>
-                <button class="arrow-button" id="rightBtn" onclick="scrollCardRight()">→</button>
-              </div>
-          </div>
-          <p>Hosted by the world's most interesting people</p>
-          <div class="card-horizontally" id="originalScroll">
-               <div class="card">
+        <div class="original">
+            <div>
+                <div class="left-part-interesting">
+                    <h2>Airbnb Originals</h2>
+                    <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}"
+                            alt=""></button>
+                </div>
+                <div class="arrow-group">
+                    <button class="arrow-button" id="leftBtn" onclick="scrollCardLeft()">←</button>
+                    <button class="arrow-button" id="rightBtn" onclick="scrollCardRight()">→</button>
+                </div>
+            </div>
+            <p>Hosted by the world's most interesting people</p>
+            <div class="card-horizontally" id="originalScroll">
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1255,8 +1439,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1269,8 +1453,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1283,8 +1467,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1297,8 +1481,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1311,8 +1495,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1325,8 +1509,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1339,8 +1523,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1353,154 +1537,25 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-          </div>
-      </div>
+                </div>
+            </div>
+        </div>
 
-      <div class="Happening">
-           <div>
-              <div class="left-part-interesting">
-                  <h3>Tomorrow in Jaipur</h3>
-                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
-              </div>
-              <div class="arrow-group">
-                <button class="arrow-button" id="leftBtn2" onclick="scrollCard2Left()">←</button>
-                <button class="arrow-button" id="rightBtn2" onclick="scrollCard2Right()">→</button>
-              </div>
-          </div>
-           
-          <div class="card-horizontally" id="happeningScroll">
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-          </div>
-      </div>
+        <div class="Happening">
+            <div>
+                <div class="left-part-interesting">
+                    <h3>Tomorrow in Jaipur</h3>
+                    <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}"
+                            alt=""></button>
+                </div>
+                <div class="arrow-group">
+                    <button class="arrow-button" id="leftBtn2" onclick="scrollCard2Left()">←</button>
+                    <button class="arrow-button" id="rightBtn2" onclick="scrollCard2Right()">→</button>
+                </div>
+            </div>
 
-      
-      <h1>Popular with travellers from your area</h1>
-      <div class="Tomorrow">
-         <div>
-              <div class="left-part-interesting">
-                  <h3>Experiences this weekend</h3>
-                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
-              </div>
-              <div class="arrow-group">
-                <button class="arrow-button" id="leftBtn3" onclick="scrollCard3Left()">←</button>
-                <button class="arrow-button" id="rightBtn3" onclick="scrollCard3Right()">→</button>
-              </div>
-          </div>
-           
-          <div class="card-horizontally" id="tomorrowScroll">
-               <div class="card">
+            <div class="card-horizontally" id="happeningScroll">
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1513,8 +1568,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1527,8 +1582,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1541,8 +1596,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1555,8 +1610,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1569,8 +1624,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1583,8 +1638,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1597,8 +1652,8 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-               <div class="card">
+                </div>
+                <div class="card">
                     <div class="image-part">
                         <div class="one-image-part">
                             <p>Original</p>
@@ -1611,160 +1666,292 @@
                         <p>Livigno, Italy</p>
                         <p>From ₹2,801/guest</p>
                     </div>
-               </div>
-          </div>
-      </div>
-
-      <div class="Experience-this-weekend">
-           <div>
-              <div class="left-part-interesting">
-                  <h3>All experiences in Jaipur</h3>
-                  <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}" alt=""></button>
-              </div>
-              <div class="arrow-group">
-                <button class="arrow-button" id="leftBtn4" onclick="scrollCard4Left()">←</button>
-                <button class="arrow-button" id="rightBtn4" onclick="scrollCard4Right()">→</button>
-              </div>
-          </div>
-          
-          
-          <div class="card-horizontally" id="ExperienceScroll">
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-               <div class="card">
-                    <div class="image-part">
-                        <div class="one-image-part">
-                            <p>Original</p>
-                            <button>download</button>
-                        </div>
-                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
-                    </div>
-                    <div class="content-part">
-                        <h3>Family show day with Olympian Perrine Laffont</h3>
-                        <p>Livigno, Italy</p>
-                        <p>From ₹2,801/guest</p>
-                    </div>
-               </div>
-          </div>
-      </div>
+                </div>
+            </div>
+        </div>
 
 
+        <h1>Popular with travellers from your area</h1>
+        <div class="Tomorrow">
+            <div>
+                <div class="left-part-interesting">
+                    <h3>Experiences this weekend</h3>
+                    <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}"
+                            alt=""></button>
+                </div>
+                <div class="arrow-group">
+                    <button class="arrow-button" id="leftBtn3" onclick="scrollCard3Left()">←</button>
+                    <button class="arrow-button" id="rightBtn3" onclick="scrollCard3Right()">→</button>
+                </div>
+            </div>
 
-      <div class="last-part">
-           <h3>Inspiration for Future getaways</h3>
-           <div class="second-inside-last-part">
-                    <!-- Tabs -->
-                    <ul class="tabs-last-part">
-                        <li class="active" onclick="openTab(event,'Popular')"">
+            <div class="card-horizontally" id="tomorrowScroll">
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Experience-this-weekend">
+            <div>
+                <div class="left-part-interesting">
+                    <h3>All experiences in Jaipur</h3>
+                    <button class="show-full-btn"><img src="{{ url_for('static', filename='icons/arrowicons.jpg') }}"
+                            alt=""></button>
+                </div>
+                <div class="arrow-group">
+                    <button class="arrow-button" id="leftBtn4" onclick="scrollCard4Left()">←</button>
+                    <button class="arrow-button" id="rightBtn4" onclick="scrollCard4Right()">→</button>
+                </div>
+            </div>
+
+
+            <div class="card-horizontally" id="ExperienceScroll">
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-part">
+                        <div class="one-image-part">
+                            <p>Original</p>
+                            <button>download</button>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/image11.jpg') }}" alt="img1">
+                    </div>
+                    <div class="content-part">
+                        <h3>Family show day with Olympian Perrine Laffont</h3>
+                        <p>Livigno, Italy</p>
+                        <p>From ₹2,801/guest</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="last-part">
+            <h3>Inspiration for Future getaways</h3>
+            <div class="second-inside-last-part">
+                <!-- Tabs -->
+                <ul class="tabs-last-part">
+                    <li class="active" onclick="openTab(event,'Popular')"">
                         Popular
                         </li>
-                        <li onclick="openTab(event,'Arts')">Arts & culture</li>
-                        <li onclick="openTab(event,'Beach')">Beach</li>
-                        <li onclick="openTab(event,'Mountains')">Mountains</li>
-                        <li onclick="openTab(event,'Outdoors')">Outdoors</li>
-                        <li onclick="openTab(event,'Things')">Things to do</li>
-                    </ul>
-                </div>
+                        <li onclick=" openTab(event,'Arts')">Arts & culture</li>
+                    <li onclick="openTab(event,'Beach')">Beach</li>
+                    <li onclick="openTab(event,'Mountains')">Mountains</li>
+                    <li onclick="openTab(event,'Outdoors')">Outdoors</li>
+                    <li onclick="openTab(event,'Things')">Things to do</li>
+                </ul>
+            </div>
 
             <!-- Content -->
-                <div class="tab-content active" id="Popular"> 
-                    <div class="popular-content">
+            <div class="tab-content active" id="Popular">
+                <div class="popular-content">
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
@@ -1821,13 +2008,13 @@
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                     
-                    </div>
-                    
+
                 </div>
 
-                <div class="tab-content " id="Arts"> 
-                    <div class="popular-content">
+            </div>
+
+            <div class="tab-content " id="Arts">
+                <div class="popular-content">
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
@@ -1884,13 +2071,13 @@
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                     
-                    </div>
-                    
+
                 </div>
 
-                <div class="tab-content " id="Beach"> 
-                    <div class="popular-content">
+            </div>
+
+            <div class="tab-content " id="Beach">
+                <div class="popular-content">
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
@@ -1947,27 +2134,19 @@
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                       
-                    </div>
-                    
+
                 </div>
 
-                <div class="tab-content  " id="Mountains"> 
-                    <div class="popular-content">
+            </div>
+
+            <div class="tab-content  " id="Mountains">
+                <div class="popular-content">
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                     
-                     
-                    <div class="popular">
-                        <p>Barcelone</p>
-                        <span>House rentals</span>
-                    </div>
-                    <div class="popular">
-                        <p>Barcelone</p>
-                        <span>House rentals</span>
-                    </div>
+
+
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
@@ -1976,13 +2155,21 @@
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                       
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
                     </div>
-                    
+                    <div class="popular">
+                        <p>Barcelone</p>
+                        <span>House rentals</span>
+                    </div>
+
                 </div>
 
-                 <div class="tab-content  " id="Outdoors"> 
-                    <div class="popular-content">
+            </div>
+
+            <div class="tab-content  " id="Outdoors">
+                <div class="popular-content">
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
@@ -2039,13 +2226,13 @@
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                       
-                    </div>
-                    
+
                 </div>
 
-                 <div class="tab-content  " id="Things"> 
-                    <div class="popular-content">
+            </div>
+
+            <div class="tab-content  " id="Things">
+                <div class="popular-content">
                     <div class="popular">
                         <p>Barcelone</p>
                         <span>House rentals</span>
@@ -2102,179 +2289,179 @@
                         <p>Barcelone</p>
                         <span>House rentals</span>
                     </div>
-                       
-                    </div>
-                    
+
                 </div>
-           </div>
-      </div>
+
+            </div>
+        </div>
+        </div>
     </main>
 
     <!-- ===== OVERLAY FORM ===== -->
     <div class="overlay" id="overlay">
-      <div class="form-box">
-          
-          <div class="overlay-form">
-           <div class="close-btn-lang">
-            <button class="close-btn" onclick="closeForm()">✖</button>
-            <!-- Tabs -->
-            <ul class="tabs">
-                <li class="active" onclick="openTab(event,'language')"">
+        <div class="form-box">
+
+            <div class="overlay-form">
+                <div class="close-btn-lang">
+                    <button class="close-btn" onclick="closeForm()">✖</button>
+                    <!-- Tabs -->
+                    <ul class="tabs">
+                        <li class="active" onclick="openTab(event,'language')"">
                 Language and region
                 </li>
-                <li onclick="openTab(event,'currency')">Currency</li>
-            </ul>
-          </div>
+                <li onclick=" openTab(event,'currency')">Currency</li>
+                    </ul>
+                </div>
 
-          <!-- Content -->
-          <div class="tab-content active" id="language">
-            <div class="tranlation-with-toggle">
-              <div class="tranlations">
-                <h3>Tranlation <img src="" alt="" /></h3>
-                <p>
-                  Automatically translate description and reviews to English
-                </p>
-              </div>
-              <div class="toggle-button">
-                <button>button</button>
-              </div>
+                <!-- Content -->
+                <div class="tab-content active" id="language">
+                    <div class="tranlation-with-toggle">
+                        <div class="tranlations">
+                            <h3>Tranlation <img src="" alt="" /></h3>
+                            <p>
+                                Automatically translate description and reviews to English
+                            </p>
+                        </div>
+                        <div class="toggle-button">
+                            <button>button</button>
+                        </div>
+                    </div>
+
+                    <h2>Suggested languages and regions</h2>
+                    <div class="Suggested-lang">
+                        <div class="lang">
+                            <p>English</p>
+                            <span>United States</span>
+                        </div>
+                        <div class="lang">
+                            <p>English</p>
+                            <span>United Kingdom</span>
+                        </div>
+
+                        <div class="lang">
+                            <p>हिन्दी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>ಕನ್ನಡ</p>
+                            <span>ಭಾರತ</span>
+                        </div>
+                        <div class="lang">
+                            <p>मराठी</p>
+                            <span>भारत</span>
+                        </div>
+                    </div>
+                    <h2>Choose a language and region</h2>
+                    <div class="Choose-lang">
+                        <div class="lang">
+                            <p>English</p>
+                            <span>United States</span>
+                        </div>
+                        <div class="lang">
+                            <p>English</p>
+                            <span>United Kingdom</span>
+                        </div>
+
+                        <div class="lang">
+                            <p>हिन्दी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>ಕನ್ನಡ</p>
+                            <span>ಭಾರತ</span>
+                        </div>
+                        <div class="lang">
+                            <p>मराठी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>हिन्दी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>ಕನ್ನಡ</p>
+                            <span>ಭಾರತ</span>
+                        </div>
+                        <div class="lang">
+                            <p>मराठी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>हिन्दी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>ಕನ್ನಡ</p>
+                            <span>ಭಾರತ</span>
+                        </div>
+                        <div class="lang">
+                            <p>मराठी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>हिन्दी</p>
+                            <span>भारत</span>
+                        </div>
+                        <div class="lang">
+                            <p>ಕನ್ನಡ</p>
+                            <span>ಭಾರತ</span>
+                        </div>
+                        <div class="lang">
+                            <p>मराठी</p>
+                            <span>भारत</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="currency">
+                    <h2>Choose a currency</h2>
+                    <div class="choose-currency">
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                        <div class="currency">
+                            <p>Indian rupee</p>
+                            <span>INR – ₹</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <h2>Suggested languages and regions</h2>
-            <div class="Suggested-lang">
-              <div class="lang">
-                <p>English</p>
-                <span>United States</span>
-              </div>
-              <div class="lang">
-                <p>English</p>
-                <span>United Kingdom</span>
-              </div>
-
-              <div class="lang">
-                <p>हिन्दी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>ಕನ್ನಡ</p>
-                <span>ಭಾರತ</span>
-              </div>
-              <div class="lang">
-                <p>मराठी</p>
-                <span>भारत</span>
-              </div>
-            </div>
-            <h2>Choose a language and region</h2>
-            <div class="Choose-lang">
-              <div class="lang">
-                <p>English</p>
-                <span>United States</span>
-              </div>
-              <div class="lang">
-                <p>English</p>
-                <span>United Kingdom</span>
-              </div>
-
-              <div class="lang">
-                <p>हिन्दी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>ಕನ್ನಡ</p>
-                <span>ಭಾರತ</span>
-              </div>
-              <div class="lang">
-                <p>मराठी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>हिन्दी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>ಕನ್ನಡ</p>
-                <span>ಭಾರತ</span>
-              </div>
-              <div class="lang">
-                <p>मराठी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>हिन्दी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>ಕನ್ನಡ</p>
-                <span>ಭಾರತ</span>
-              </div>
-              <div class="lang">
-                <p>मराठी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>हिन्दी</p>
-                <span>भारत</span>
-              </div>
-              <div class="lang">
-                <p>ಕನ್ನಡ</p>
-                <span>ಭಾರತ</span>
-              </div>
-              <div class="lang">
-                <p>मराठी</p>
-                <span>भारत</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="currency">
-            <h2>Choose a currency</h2>
-            <div class="choose-currency">
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-              <div class="currency">
-                <p>Indian rupee</p>
-                <span>INR – ₹</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    
+
     <div class="host-overlay" id="host-overlay">
         <div class="become-host" id="become-host">
             <button class="close-btn" onclick="closeHostForm()">✖</button>
@@ -2283,16 +2470,16 @@
             </div>
             <div class="three-options">
                 <div class="first-option">
-                        <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Home">
-                        <span>Home</span>
+                    <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Home">
+                    <span>Home</span>
                 </div>
                 <div class="first-option">
-                        <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Experience">
-                        <span>Experience</span>
+                    <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Experience">
+                    <span>Experience</span>
                 </div>
                 <div class="first-option">
-                        <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Service">
-                        <span>Service</span>
+                    <img src="{{ url_for('static', filename='images/3Dhome.jpg') }}" alt="Service">
+                    <span>Service</span>
                 </div>
             </div>
             <div class="next-button">
@@ -2332,80 +2519,132 @@
             </div>
         </div>
         <div class="second-lower-part">
-               <div class="right-footer-part">
-                    <ul>
-                        <li>@2026 Airbnb,Inc.</li>
-                        <li>Privacy</li>
-                        <li>Privacy</li>
-                        <li>Privacy</li>
-                        <li>Privacy</li>
-                    </ul>
-               </div>
-               <div class="left-footer-part">
-                    <ul>
-                        <li>English(IN)</li>
-                        <li>INR</li>
-                        <li><img src="" alt="facebook"></li>
-                        <li><img src="" alt="X"></li>
-                        <li><img src="" alt="instagram"></li>
-                    </ul>
-               </div>
+            <div class="right-footer-part">
+                <ul>
+                    <li>@2026 Airbnb,Inc.</li>
+                    <li>Privacy</li>
+                    <li>Privacy</li>
+                    <li>Privacy</li>
+                    <li>Privacy</li>
+                </ul>
+            </div>
+            <div class="left-footer-part">
+                <ul>
+                    <li>English(IN)</li>
+                    <li>INR</li>
+                    <li><img src="" alt="facebook"></li>
+                    <li><img src="" alt="X"></li>
+                    <li><img src="" alt="instagram"></li>
+                </ul>
+            </div>
         </div>
     </footer>
 
+
+    <!-- login and signup -->
+    <div class="login-overlay" id="login-overlay">
+        <div class="become-login" id="become-login">
+            <div class="first-upper">
+                <button onclick="closeLoginForm()">X</button>
+                <h3>Log in or Sign up</h3>
+            </div>
+            <div class="second-between">
+                <h2>Welcome to Airbnb</h2>
+                <form action="">
+                    <div class="input-group">
+                        <p>Country/Region</p>
+                        <select id="country" name="country" required>
+                            <option value="">Country/Region</option>
+                            <option value="India">India</option>
+                            <option value="china">china</option>
+                            <option value="america">america</option>
+                            <option value="russia">russia</option>
+                            <option value="UnitedArabEmirates">United Arab Emirates</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group floating">
+                        <input type="tel" id="mobile" name="mobile" required placeholder=" ">
+                        <label for="mobile">Phone number</label>
+                    </div>
+                    <button>Continue</button>
+                </form>
+            </div>
+            <div class="third-bottom">
+                <div class="google">
+                    <img src="" alt="google">
+                    <p>Contiue with Google</p>
+                </div>
+                <div class="apple">
+                    <img src="" alt="apple">
+                    <p>Contiue with Apple</p>
+                </div>
+                <div class="email">
+                    <img src="" alt="email">
+                    <p>Contiue with Email</p>
+                </div>
+                <div class="facebook">
+                    <img src="" alt="facebook">
+                    <p>Contiue with Facebook</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script>
-      const icon = document.getElementById("menubarIcon");
-      const dropdown = document.getElementById("dropdownMenu");
+        const icon = document.getElementById("menubarIcon");
+        const dropdown = document.getElementById("dropdownMenu");
 
-      icon.addEventListener("click", function (event) {
-        event.stopPropagation();
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-      });
-
-      dropdown.addEventListener("click", function (event) {
-        event.stopPropagation();
-      });
-
-      document.addEventListener("click", function () {
-        dropdown.style.display = "none";
-      });
- 
-      const navItems = document.querySelectorAll(".nav-item");
-
-      navItems.forEach((item) => {
-        const video = item.querySelector("video");
-
-        item.addEventListener("mouseenter", () => {
-          video.currentTime = 0;
-          video.play();
+        icon.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdown.style.display =
+                dropdown.style.display === "block" ? "none" : "block";
         });
 
-        item.addEventListener("mouseleave", () => {
-          video.pause();
-          video.currentTime = 0;
+        dropdown.addEventListener("click", function (event) {
+            event.stopPropagation();
         });
-      });
 
-      //   overlay form
-
-      function openForm(title) {
-        document.getElementById("overlay").style.display = "flex";
-        console.log("hello")
-      }
-
-      function closeForm() {
-        document.getElementById("overlay").style.display = "none";
-      }
-
-      /* close when clicking outside */
-      document
-        .getElementById("overlay")
-        .addEventListener("click", function (e) {
-          if (e.target === this) {
-            closeForm();
-          }
+        document.addEventListener("click", function () {
+            dropdown.style.display = "none";
         });
+
+        const navItems = document.querySelectorAll(".nav-item");
+
+        navItems.forEach((item) => {
+            const video = item.querySelector("video");
+
+            item.addEventListener("mouseenter", () => {
+                video.currentTime = 0;
+                video.play();
+            });
+
+            item.addEventListener("mouseleave", () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+
+        //   overlay form
+
+        function openForm(title) {
+            document.getElementById("overlay").style.display = "flex";
+            console.log("hello")
+        }
+
+        function closeForm() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        /* close when clicking outside */
+        document
+            .getElementById("overlay")
+            .addEventListener("click", function (e) {
+                if (e.target === this) {
+                    closeForm();
+                }
+            });
 
         function openTab(event, tabId) {
             document.querySelectorAll(".tabs li")
@@ -2418,11 +2657,11 @@
 
             document.getElementById(tabId).classList.add("active");
         }
-    
+
 
         // become host form 
 
-        
+
         function openHostForm() {
             document.getElementById("host-overlay").style.display = "flex";
             console.log("hostform")
@@ -2434,16 +2673,16 @@
 
         /* close when clicking outside */
         document.getElementById("host-overlay")
-        .addEventListener("click", function (e) {
+            .addEventListener("click", function (e) {
 
-            if (e.target === this) {
-                closeHostForm();
-            }
-        });
-         
+                if (e.target === this) {
+                    closeHostForm();
+                }
+            });
+
 
         // for original section 
-       function scrollCardRight() {
+        function scrollCardRight() {
             const container = document.getElementById("originalScroll");
             const card = container.querySelector(".card");
 
@@ -2473,8 +2712,8 @@
             leftBtn.disabled = container.scrollLeft <= 0;
 
             const maxScroll = container.scrollWidth - container.clientWidth;
-            rightBtn.disabled =  Math.ceil(container.scrollLeft) >= maxScroll;
-            
+            rightBtn.disabled = Math.ceil(container.scrollLeft) >= maxScroll;
+
         }
 
         container.addEventListener("scroll", updateButtons);
@@ -2483,7 +2722,7 @@
 
         // for happening section 
 
-       function scrollCard2Right() {
+        function scrollCard2Right() {
             const container = document.getElementById("happeningScroll");
             const card = container.querySelector(".card");
 
@@ -2513,12 +2752,12 @@
             leftBtn2.disabled = container2.scrollLeft <= 0;
 
             const maxScroll = container2.scrollWidth - container2.clientWidth;
-            rightBtn2.disabled =  Math.ceil(container2.scrollLeft) >= maxScroll;
+            rightBtn2.disabled = Math.ceil(container2.scrollLeft) >= maxScroll;
         }
 
         container2.addEventListener("scroll", updateButtons2);
         window.addEventListener("load", updateButtons2);
- 
+
 
         // for tomorrow section 
 
@@ -2552,7 +2791,7 @@
             leftBtn3.disabled = container3.scrollLeft <= 0;
 
             const maxScroll = container3.scrollWidth - container3.clientWidth;
-            rightBtn3.disabled =  Math.ceil(container3.scrollLeft) >= maxScroll;
+            rightBtn3.disabled = Math.ceil(container3.scrollLeft) >= maxScroll;
         }
 
         container3.addEventListener("scroll", updateButtons3);
@@ -2591,11 +2830,66 @@
             leftBtn4.disabled = container4.scrollLeft <= 0;
 
             const maxScroll = container4.scrollWidth - container4.clientWidth;
-            rightBtn4.disabled =  Math.ceil(container4.scrollLeft) >= maxScroll;
+            rightBtn4.disabled = Math.ceil(container4.scrollLeft) >= maxScroll;
         }
 
         container4.addEventListener("scroll", updateButtons4);
         window.addEventListener("load", updateButtons4);
+
+
+        // for login and signup 
+        const countrySelect = document.getElementById("country");
+        const mobileInput = document.getElementById("mobile");
+
+        // country code mapping
+        const countryCodes = {
+            "India": "+91 ",
+            "china": "+86 ",
+            "america": "+1 ",
+            "russia": "+7 ",
+            "UnitedArabEmirates": "+971 "
+        };
+
+        countrySelect.addEventListener("change", function () {
+            const code = countryCodes[this.value];
+
+            if (code) {
+                mobileInput.value = code;
+                mobileInput.focus();
+            } else {
+                mobileInput.value = "";
+            }
+        });
+
+
+        function openLoginForm() {
+            document.getElementById("login-overlay").style.display = "flex";
+            console.log("hostform")
+        }
+         
+        function closeLoginForm() {
+            document.getElementById("login-overlay").style.display = "none";
+            console.log("hellodsfg")
+        }
+
+        /* close when clicking outside */
+        document.getElementById("login-overlay")
+            .addEventListener("click", function (e) {
+
+                if (e.target === this) {
+                    closeLoginForm();
+                }
+            });
+
+
+
+        // show login popup after 3 seconds
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                document.getElementById("login-overlay").style.display = "flex";
+            }, 6000); // 3000ms = 3 seconds
+        });
     </script>
-  </body>
+</body>
+
 </html>
