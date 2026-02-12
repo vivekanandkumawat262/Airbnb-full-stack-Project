@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{% block title %}Home{% endblock %}</title>
     <style>
         /* navbar  */
         * {
@@ -1169,6 +1169,12 @@
             cursor: pointer;
         }
 
+        .first-upper button img{
+            font-size: 18px;
+            cursor: pointer;
+            width: 26px;
+        }
+
         /* ===== MIDDLE SECTION ===== */
         .second-between {
             padding: 20px 25px;
@@ -1230,6 +1236,24 @@
             background: #e03150;
         }
 
+        .signup-btn{
+            width: 100%;
+            padding: 12px;
+            background: #ff385c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+        }
+        .signup-btn:hover {
+            background: #e03150;
+        }
+
         /* ===== BOTTOM SOCIAL LOGIN ===== */
         .third-bottom {
             border-top: 1px solid #eee;
@@ -1255,7 +1279,15 @@
 
         .third-bottom p {
             margin: 0;
-            font-size: 14px;
+            /* font-size: 14px; */
+        }
+        
+        .third-bottom button {
+            margin: 0;
+            /* font-size: 14px; */
+        }
+        .google img{
+            width: 36px;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -1306,7 +1338,206 @@
             border-color: #fcf9fa;
             box-shadow: 0px 0px 4px rgba(255, 56, 92, 0.3);
         }
+
+
+
+        /* sign up  */
+        /* ===== RESET ===== */
+     
+
+    /* ===== BACKGROUND OVERLAY ===== */
+    /* .become-signup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.45);
+         
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    } */
+
+    /* show class */
+    /* .become-signup.active {
+        display: flex;
+    } */
+
+
+    .become-signup {
+        background: white;
+        width: 420px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        animation: popup 0.3s ease;
+    }
+
+    /* ===== MAIN BOX ===== */
+    .second-between1 {
+        background: white;
+        width: 420px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 12px;
+        padding: 20px;
+        /* animation: popup 0.3s ease; */
+    }
+
+    @keyframes popup {
+        from {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* ===== HEADER ===== */
+    .first-upper1 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 6px;
+        margin-bottom: 5px;
+        margin-right: 127px;
+        margin-top: 18px;
+        margin-left: 17px;
+        justify-content: space-between;
+    }
+
+    .first-upper1 button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .first-upper1 img {
+        width: 20px;
+    }
+
+    /* ===== GROUP SPACING ===== */
+    .group1,
+    .group2,
+    .group3,
+    .group4,
+    .group5,
+    .group6 {
+        margin-bottom: 26px;
+    }
+
+     
+
+    .group5{
+        display: flex;
+        gap: 17px;
+        flex-direction: column;
+        margin: 37px 0px 33px 0px;
+    }
+
+    .group1 h3,
+    .group2 h3,
+    .group3 h3 {
+        margin-bottom: 10px;
+    }
+
+    /* ===== FLOATING INPUT ===== */
+    .input-group1 {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .input-group1 input {
+        width: 100%;
+        padding: 16px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .input-group1 label {
+        position: absolute;
+        left: 12px;
+        top: 16px;
+        color: #777;
+        background: white;
+        padding: 0 4px;
+        transition: 0.2s;
+        pointer-events: none;
+    }
+
+    .input-group1 input:focus,
+    .input-group1 input:not(:placeholder-shown) {
+        border-color: #ff385c;
+    }
+
+    .input-group1 input:focus + label,
+    .input-group1 input:not(:placeholder-shown) + label {
+        top: -8px;
+        font-size: 12px;
+        color: #ff385c;
+    }
+
+    /* ===== TEXT ===== */
+    .group1 p,
+    .group2 p,
+    .group3 p,
+    .group6 p {
+        font-size: 13px;
+        color: #666;
+    }
+
+    /* ===== PASSWORD RULES ===== */
+    .group4 ul {
+        font-size: 13px;
+        color: #666;
+        padding-left: 18px;
+    }
+
+    .group4 h3{
+        margin-bottom: 10px;
+    }
+
+    /* ===== BUTTON ===== */
+    .group5 button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        background: #ff385c;
+        color: white;
+        border-radius: 8px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .group5 button:hover {
+        background: #e11d48;
+    }
+
+    /* ===== CHECKBOX ===== */
+    .check-label {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 500px) {
+        .second-between1 {
+            width: 95%;
+        }
+    }
+   
+    
+
     </style>
+
+     {% block styles %}{% endblock %}
 </head>
 
 <body>
@@ -1410,8 +1641,11 @@
             </div>
         </form>
     </header>
-
+    {{name}}here
     <main class="main">
+
+        {% block content %}
+        {% endblock %}
         <div class="original">
             <div>
                 <div class="left-part-interesting">
@@ -2572,25 +2806,173 @@
             </div>
             <div class="third-bottom">
                 <div class="google">
-                    <img src="" alt="google">
+                    <img src="{{ url_for('static', filename='images/google-image.jpg') }}" alt="google">
                     <p>Contiue with Google</p>
                 </div>
-                <div class="apple">
-                    <img src="" alt="apple">
+                <div class="google">
+                    <img src="{{ url_for('static', filename='images/apple-image.jpg') }}" alt="apple">
                     <p>Contiue with Apple</p>
                 </div>
-                <div class="email">
-                    <img src="" alt="email">
-                    <p>Contiue with Email</p>
+                <div class="google" onclick="openLoginEmailForm()">
+                     
+                      <img src="{{ url_for('static', filename='images/email-image.jpg') }}" alt="email">
+                      <p>Contiue with Email</p>
+                   
                 </div>
-                <div class="facebook">
-                    <img src="" alt="facebook">
+                <div class="google">
+                    <img src="{{ url_for('static', filename='images/facebook-image.jpg') }}" alt="facebook">
                     <p>Contiue with Facebook</p>
                 </div>
 
             </div>
         </div>
     </div>
+
+
+
+
+    <!-- for email -->
+       <div class="login-overlay" id="login-email-overlay">
+        <div class="become-login" id="become-login">
+            <div class="first-upper">
+                <button onclick="closeLoginEmailForm()">X</button>
+                <h3>Log in or Sign up</h3>
+            </div>
+            <div class="second-between">
+                <h2>Welcome to Airbnb</h2>
+            <form id="emailForm">
+
+                <div class="input-group floating">
+                    <input type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder=" ">
+                    <label for="email">Enter email</label>
+                </div>
+
+                <button type="button"
+                        class="signup-btn"
+                        onclick="openSignupEmailForm()">
+                    Continue
+                </button>
+
+            </form>
+
+            </div>
+            <div class="third-bottom">
+                <div class="google">
+                    <img src="{{ url_for('static', filename='images/google-image.jpg') }}" alt="google">
+                    <p>Contiue with Google</p>
+                </div>
+                <div class="google">
+                    <img src="{{ url_for('static', filename='images/apple-image.jpg') }}" alt="apple">
+                    <p>Contiue with Apple</p>
+                </div>
+                <div class="google" onclick="openLoginForm()">
+                     
+                      <img src="{{ url_for('static', filename='images/phone-image.jpg') }}" alt="email">
+                      <p>Contiue with phone</p>
+                   
+                </div>
+                <div class="google">
+                    <img src="{{ url_for('static', filename='images/facebook-image.jpg') }}" alt="facebook">
+                    <p>Contiue with Facebook</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- for email-signup -->
+
+     <div class="login-overlay" id="signup-email-overlay">
+        <div class="become-signup" id="become-signup">
+            <div class="first-upper1">
+                <button onclick="openLoginEmailForm()"><img src="{{ url_for('static', filename='images/backarrow1-image.jpg') }}" alt="backarrow"></button>
+                <h3>Finish signing up</h3>
+            </div>
+            <div class="second-between1">
+                <form action="{{url_for('register')}}" method="POST">
+                        <div class="group1">
+                            <h3>Legal name</h3>
+                            <div class="input-group1 floating">
+                                <input type="text" id="first_name" name="first_name" required placeholder=" ">
+                                <label for="first_name">First name</label>
+                            </div>
+
+                            <div class="input-group1 floating">
+                                <input type="text" id="last_name" name="last_name" required placeholder=" ">
+                                <label for="last_name">Last name</label>
+                            </div>
+
+                                <p>Make sure this matches the name on your government ID. If you go by another name, you can <span>add a preferred first name</span>.</p>
+                        </div>
+                            
+                        <div class="group2">
+                            <h3>Date of birth</h3>
+                            <div class="input-group1 floating">
+                                <input type="date" id="dob" name="dob" required placeholder=" ">
+                                <label for="dob">Date of birth</label>
+                            </div>
+
+                            <p>To sign up, you need to be at least 18. Your birthday won’t be shared with other people who use Airbnb.</p>
+                        </div>
+                        <div class="group3">
+                            <h3>Contact info</h3>
+                            <div class="input-group1 floating">
+                                <input type="email"
+                                    id="signup_email"
+                                    name="email"
+                                    required
+                                    placeholder=" ">
+                                <label for="signup_email">Email address</label>
+                            </div>
+
+                            <p>We'll email you trip confirmations and receipts.</p>
+                        </div>
+                        
+                        <div class="group4">
+                            <h3>Password</h3>
+                            <div class="input-group1 floating">
+                                <input type="password"
+                                    id="password"
+                                    name="password"
+                                    required
+                                    minlength="8"
+                                    placeholder=" ">
+                                <label for="password">Password</label>
+                            </div>
+
+                            <ul class="password-rules">
+                                <li id="strength">Password strength: Weak</li>
+                                <li>Can't contain your name or email address</li>
+                                <li>At least 8 characters</li>
+                                <li>Contains a number or symbol</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="group5">
+                            <p>By selecting <span>Agree and continue</span>, I agree to Airbnb’s <a href="">Terms of Service</a>, <a href="">Payments Terms of Service</a>, and <a href="">Nondiscrimination Policy</a> and acknowledge the <a href="">Privacy Policy</a>.</p>
+                            <button>Agree and continue</button>
+                        </div>
+                        
+                        <div class="group6">
+                            <p>Airbnb will send you members-only deals, inspiration, marketing emails, and push notifications. You can opt out of receiving these at any time in your account settings or directly from the marketing notification.</p>
+                            <div class="check-label">
+                                <input type="checkbox" id="terms" name="terms" value="no_marketing">
+                                <label for="terms">I don’t want to receive marketing messages from Airbnb.</label>
+                            </div>
+                        </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+
+     
 
     <script>
         const icon = document.getElementById("menubarIcon");
@@ -2863,6 +3245,7 @@
 
 
         function openLoginForm() {
+            document.getElementById("login-email-overlay").style.display = "none";
             document.getElementById("login-overlay").style.display = "flex";
             console.log("hostform")
         }
@@ -2883,12 +3266,87 @@
 
 
 
-        // show login popup after 3 seconds
-        window.addEventListener("load", function () {
-            setTimeout(function () {
-                document.getElementById("login-overlay").style.display = "flex";
-            }, 6000); // 3000ms = 3 seconds
+        // // show login popup after 3 seconds
+        // window.addEventListener("load", function () {
+        //     setTimeout(function () {
+        //         document.getElementById("login-overlay").style.display = "flex";
+        //     }, 6000); // 3000ms = 3 seconds
+        // });
+    
+        
+        
+        // for email 
+
+        function openLoginEmailForm() {
+            document.getElementById("login-overlay").style.display = "none";
+            document.getElementById("signup-email-overlay").style.display = "none";
+            document.getElementById("login-email-overlay").style.display = "flex";
+            console.log("openLoginEmailForm")
+        }
+
+         function closeLoginEmailForm() {
+            document.getElementById("login-email-overlay").style.display = "none";
+            console.log("hellodsaaaaaafg")
+        }
+
+
+        // for signup 
+
+        function openSignupEmailForm() {
+            document.getElementById("signup-email-overlay").style.display = "flex";
+            // document.getElementById("login-overlay").style.display = "flex";
+             let emailValue = document.getElementById("email").value;
+
+            if (emailValue === "") {
+                alert("Please enter email first");
+                return;
+            }
+
+            // set email into signup form
+            document.getElementById("signup_email").value = emailValue;
+
+            // open signup form
+            document.getElementById("become-signup")
+                .classList.add("active");
+            console.log("signup")
+        }
+
+        // OPEN FORM
+        // function openSignup() {
+        //     document.getElementById("become-signup")
+        //         .classList.add("active");
+        // }
+
+        // // CLOSE FORM (back button)
+        // function openLoginEmailForm() {
+        //     document.getElementById("become-signup")
+        //         .classList.remove("active");
+        // }
+
+
+        // PASSWORD STRENGTH CHECK
+        const passwordInput = document.getElementById("password");
+        const strengthText = document.getElementById("strength");
+
+        passwordInput.addEventListener("input", function () {
+            let value = passwordInput.value;
+            let strength = "Weak";
+
+            if (value.length >= 8 &&
+                /[0-9]/.test(value) &&
+                /[!@#$%^&*]/.test(value)) {
+                strength = "Strong";
+            } 
+            else if (value.length >= 6) {
+                strength = "Medium";
+            }
+
+            strengthText.innerText = "Password strength: " + strength;
         });
+
+
+
+         
     </script>
 </body>
 

@@ -1,0 +1,201 @@
+{% extends "home1.html" %}
+
+{% block title %}
+User Login
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+
+<style>
+
+/* ===== LOCK BACKGROUND SCROLL ===== */
+body{
+    overflow: hidden;
+}
+
+/* ===== LOGIN OVERLAY ===== */
+#loginPageOverlay{
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.45);
+
+    /* BLUR BACKGROUND */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    z-index: 999999;
+}
+
+/* ===== LOGIN CARD ===== */
+#loginPageCard{
+    width: 420px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    animation: popup .25s ease;
+}
+
+@keyframes popup{
+    from{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== HEADER ===== */
+.login-header{
+    position: relative;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.login-header button{
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.login-header img{
+    width: 20px;
+}
+
+/* ===== BODY ===== */
+.login-body{
+    padding: 22px;
+}
+
+/* ===== FLOAT INPUT ===== */
+.login-input{
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.login-input input{
+    width: 100%;
+    padding: 16px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.login-input input:focus{
+    border-color: #ff385c;
+    box-shadow: 0 0 0 2px rgba(255,56,92,.15);
+}
+
+.login-input label{
+    position: absolute;
+    left: 12px;
+    top: 15px;
+    background: white;
+    padding: 0 4px;
+    color: #777;
+    font-size: 14px;
+    transition: .2s;
+    pointer-events: none;
+}
+
+.login-input input:focus + label,
+.login-input input:not(:placeholder-shown) + label{
+    top: -8px;
+    font-size: 12px;
+    color: #ff385c;
+}
+
+/* ===== BUTTON ===== */
+.login-btn{
+    width: 100%;
+    padding: 14px;
+    background: #ff385c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-btn:hover{
+    background: #e11d48;
+}
+
+/* ===== FOOTER ===== */
+.login-footer{
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-footer a{
+    color: #ff385c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="loginPageOverlay">
+
+    <div id="loginPageCard">
+
+        <!-- HEADER -->
+        <div class="login-header">
+            <button onclick="window.location.href='/'">
+                <img src="{{ url_for('static', filename='images/backarrow1-image.jpg') }}">
+            </button>
+            <h3>User Login</h3>
+        </div>
+
+        <!-- BODY -->
+        <div class="login-body">
+
+            <form action="{{ url_for('user_login') }}" method="POST">
+
+                <div class="login-input">
+                    <input type="email" name="email" required placeholder=" ">
+                    <label>Email</label>
+                </div>
+
+                <div class="login-input">
+                    <input type="password" name="password" required placeholder=" ">
+                    <label>Password</label>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="login-footer">
+                Don’t have an account?
+                <a href="{{ url_for('register') }}">Sign up</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
